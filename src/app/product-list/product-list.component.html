@@ -4,5 +4,7 @@
     title: {{product.title}}
     desc: {{product.description}}
     price: {{product.price}}
+    <button (click)="onDetail(product.id)">detail</button>
+    <button (click)="onEdit()">edit</button>
   </li>
 </ul>
