@@ -2,7 +2,7 @@
   product-edit works!
 </p>
 
-<form (ngSubmit)="onSubmit()" #f="ngForm">
+<form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="!editMode">
 
   <input type="text"
          id="addImage"
@@ -16,11 +16,10 @@
          ngModel
          name="title">
 
-  <textarea
-         id="addDescription"
-         placeholder="add description here"
-         ngModel
-         name="description"></textarea>
+  <textarea id="addDescription"
+            placeholder="add description here"
+            ngModel
+            name="description"></textarea>
 
   <input type="text"
          id="addPrice"
@@ -30,5 +29,36 @@
 
   <button type="submit">add</button>
   <button (click)="onGoBack()">back</button>
+  editMode: {{editMode}}
+</form>
+
+<form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="editMode">
+  <input type="text"
+         id="editImage"
+         placeholder="add link to img"
+         [ngModel]="product.image"
+         name="image">
+
+  <input type="text"
+         id="editTitle"
+         placeholder="add title here"
+         [ngModel]="product.title"
+         name="title">
+
+  <textarea id="editDescription"
+            placeholder="add description here"
+            [ngModel]="product.description"
+            name="description"></textarea>
+
+  <input type="text"
+         id="editPrice"
+         placeholder="add price here"
+         [ngModel]="product.price"
+         name="price">
+
+  <button type="submit">edit</button>
+  <button (click)="onGoBack()">back</button>
+  <button (click)="onDelete()">delete</button>
+  editMode: {{editMode}}
 
 </form>

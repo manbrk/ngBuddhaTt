@@ -23,8 +23,8 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['/list', id], {relativeTo: this.route});
   }
 
-  onEdit() {
-    console.log('-->', 'on edit click');
+  onEdit(id) {
+    this.router.navigate(['/edit', id], {relativeTo: this.route});
   }
 
   onDelete(product) {

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import {NgForm} from '@angular/forms';
@@ -8,10 +8,9 @@ import {NgForm} from '@angular/forms';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
-export class ProductEditComponent implements OnInit {
+export class ProductEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') signupForm: NgForm;
   product: {id: number, image: string, title: string, description: string, price: number };
-  // newProduct: {id: number, image: string, title: string, description: string, price: number };
   id: number;
   editMode = false;
 
@@ -30,15 +29,25 @@ export class ProductEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.product = {
-      id: this.productService.generateId(),
-      image: this.signupForm.value.image,
-      title: this.signupForm.value.title,
-      description: this.signupForm.value.description,
-      price: this.signupForm.value.price
-    };
-    this.productService.addProduct(this.product);
-    this.router.navigate(['/list']);
+    if (this.editMode) {
+      this.product.image = this.signupForm.value.image;
+      this.product.title = this.signupForm.value.title;
+      this.product.description = this.signupForm.value.description;
+      this.product.price = this.signupForm.value.price;
+      this.router.navigate(['/list']);
+    }
+
+    if (!this.editMode) {
+      this.product = {
+        id: this.productService.generateId(),
+        image: this.signupForm.value.image,
+        title: this.signupForm.value.title,
+        description: this.signupForm.value.description,
+        price: this.signupForm.value.price
+      };
+      this.productService.addProduct(this.product);
+      this.router.navigate(['/list']);
+    }
     console.log('-->', this.product);
   }
 
@@ -46,4 +55,12 @@ export class ProductEditComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
+  onDelete() {
+    this.productService.deleteProduct(this.product);
+    this.router.navigate(['/list']);
+  }
+
+  ngOnDestroy() {
+
+  }
 }
