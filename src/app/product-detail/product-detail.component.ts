@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private router: Router,
     private route: ActivatedRoute,
   ) { }
 
@@ -23,6 +24,15 @@ export class ProductDetailComponent implements OnInit {
         this.product = this.productService.getProduct(this.id);
       }
     );
+  }
+
+  onGoBack() {
+    this.router.navigate(['/list']);
+  }
+
+  onDelete() {
+    this.productService.deleteProduct(this.product);
+    this.router.navigate(['/list']);
   }
 
 }
