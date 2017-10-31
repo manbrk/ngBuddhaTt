@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -8,11 +8,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: {id: number, image: string, title: string, description: string, price: number }[] = [];
+  products: { id: number, image: string, title: string, description: string, price: number }[] = [];
 
   constructor(private productService: ProductService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
@@ -24,5 +25,9 @@ export class ProductListComponent implements OnInit {
 
   onEdit() {
     console.log('-->', 'on edit click');
+  }
+
+  onDelete(product) {
+    this.productService.deleteProduct(product);
   }
 }
