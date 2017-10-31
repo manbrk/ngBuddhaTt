@@ -34,6 +34,8 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       this.product.title = this.signupForm.value.title;
       this.product.description = this.signupForm.value.description;
       this.product.price = this.signupForm.value.price;
+
+      this.productService.updateLocalStorage();
       this.router.navigate(['/list']);
     }
 
