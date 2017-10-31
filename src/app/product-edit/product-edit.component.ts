@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-product-edit',
@@ -8,7 +9,9 @@ import {ProductService} from '../product.service';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
+  @ViewChild('f') signupForm: NgForm;
   product: {id: number, image: string, title: string, description: string, price: number };
+  // newProduct: {id: number, image: string, title: string, description: string, price: number };
   id: number;
   editMode = false;
 
@@ -24,6 +27,19 @@ export class ProductEditComponent implements OnInit {
         this.product = this.productService.getProduct(this.id);
       }
     );
+  }
+
+  onSubmit() {
+    this.product = {
+      id: this.productService.generateId(),
+      image: this.signupForm.value.image,
+      title: this.signupForm.value.title,
+      description: this.signupForm.value.description,
+      price: this.signupForm.value.price
+    };
+    this.productService.addProduct(this.product);
+    this.router.navigate(['/list']);
+    console.log('-->', this.product);
   }
 
   onGoBack() {
