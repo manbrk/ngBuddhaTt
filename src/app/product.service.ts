@@ -11,7 +11,23 @@ export class ProductService {
     {id: 6, image: 'http://', title: 'cavitation apparatus', description: 'full description', price: 6},
   ];
 
-  constructor() { }
+  generateId() {
+    if (this.productList.length === 0) {
+      return 0;
+    }
+    return Math.max.apply(Math, this.productList.map(list => list.id)) + 1;
+  }
+
+  addProduct(image: string, title: string, description: string, price: number) {
+    const id = this.generateId();
+    this.productList.push({
+      id: id,
+      image: image,
+      title: title,
+      description: description,
+      price: price
+    });
+  }
 
   getProducts() {
     return this.productList;

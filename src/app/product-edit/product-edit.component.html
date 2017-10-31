@@ -1,3 +1,34 @@
 <p>
   product-edit works!
 </p>
+
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+
+  <input type="text"
+         id="addImage"
+         placeholder="add link to img"
+         ngModel
+         name="image">
+
+  <input type="text"
+         id="addTitle"
+         placeholder="add title here"
+         ngModel
+         name="title">
+
+  <textarea
+         id="addDescription"
+         placeholder="add description here"
+         ngModel
+         name="description"></textarea>
+
+  <input type="text"
+         id="addPrice"
+         placeholder="add price here"
+         ngModel
+         name="price">
+
+  <button type="submit">add</button>
+  <button (click)="onGoBack()">back</button>
+
+</form>

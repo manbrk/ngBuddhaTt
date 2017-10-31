@@ -8,6 +8,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import {ProductService} from './product.service';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {appRoutes} from './routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
