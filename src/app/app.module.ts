@@ -6,6 +6,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import {ProductService} from './product.service';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './routes';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import {ProductService} from './product.service';
     ProductEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
