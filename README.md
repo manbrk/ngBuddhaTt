@@ -11,7 +11,7 @@ Demo [here](https://manbrk.github.io/ngBuddhaTt/)
 - Ability to set different image for the product, by paste a url-link into image field on Add or Edit page
 - If link on image is incorrect, some placeholder showed
 
-- If all Products was deleted, push "Reset Localstorage" button and update page
+- If all Products was deleted, push "Reset Localstorage" button and update page (https://manbrk.github.io/ngBuddhaTt/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
