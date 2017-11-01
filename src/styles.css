@@ -1,5 +1,6 @@
 body {
   background-color: #FAFBFC;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 .container {
@@ -42,6 +43,7 @@ ul {
 li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: default;
   margin: 10px;
   padding: 15px;
