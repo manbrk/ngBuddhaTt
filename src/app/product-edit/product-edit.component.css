@@ -24,3 +24,7 @@ textarea {
   cursor: not-allowed;
 }
 
+span {
+  color: darkred;
+}
+

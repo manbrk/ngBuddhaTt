@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import {NgForm} from '@angular/forms';
+import {Product} from '../product.model';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class ProductEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') signupForm: NgForm;
-  product: {id: number, image: string, title: string, description: string, price: number };
+  product: Product;
   id: number;
   editMode = false;
 
@@ -40,13 +41,20 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     }
 
     if (!this.editMode) {
-      this.product = {
-        id: this.productService.generateId(),
-        image: this.signupForm.value.image,
-        title: this.signupForm.value.title,
-        description: this.signupForm.value.description,
-        price: this.signupForm.value.price
-      };
+      this.product = new Product (
+        this.productService.generateId(),
+        this.signupForm.value.image,
+        this.signupForm.value.title,
+        this.signupForm.value.description,
+        this.signupForm.value.price
+      );
+      // this.product = {
+      //   id: this.productService.generateId(),
+      //   image: this.signupForm.value.image,
+      //   title: this.signupForm.value.title,
+      //   description: this.signupForm.value.description,
+      //   price: this.signupForm.value.price
+      // };
       this.productService.addProduct(this.product);
       this.router.navigate(['/list']);
     }

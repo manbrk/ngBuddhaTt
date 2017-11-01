@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Product} from '../product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: { id: number, image: string, title: string, description: string, price: number }[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService,
               private router: Router,
