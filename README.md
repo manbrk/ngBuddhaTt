@@ -1,6 +1,6 @@
 # NgBuddhaTt
 
-
+Demo [here](https://manbrk.github.io/ngBuddhaTt/)
 
 - List of Products
 - Detailed Product page
