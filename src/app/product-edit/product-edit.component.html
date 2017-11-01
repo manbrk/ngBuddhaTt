@@ -1,70 +1,96 @@
-<p>
-  product-edit works!
-</p>
+<div class="product">
+  <form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="!editMode">
+    <div>
+      <input type="text"
+             size="50"
+             id="addImage"
+             placeholder="add link to img"
+             ngModel
+             name="image">
+    </div>
 
-<form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="!editMode">
+    <div>
+      <input type="text"
+             size="50"
+             id="addTitle"
+             placeholder="add title here"
+             ngModel
+             name="title"
+             required
+             #title="ngModel">
+    </div>
+    <span *ngIf="!title.valid && title.touched">enter title please</span>
 
-  <input type="text"
-         id="addImage"
-         placeholder="add link to img"
-         ngModel
-         name="image">
-
-  <input type="text"
-         id="addTitle"
-         placeholder="add title here"
-         ngModel
-         name="title"
-         required
-  #title="ngModel">
-  <span *ngIf="!title.valid && title.touched">enter title please</span>
-
+    <div>
   <textarea id="addDescription"
+            rows="10"
             placeholder="add description here"
             ngModel
             name="description"
-            required></textarea>
+            required
+            #desc="ngModel"></textarea>
+    </div>
+    <span *ngIf="!desc.valid && desc.touched">enter description please</span>
 
-  <input type="text"
-         id="addPrice"
-         placeholder="add price here"
-         ngModel
-         name="price"
-         required>
 
-  <button type="submit"
-          [disabled]="!f.valid">add</button>
-  <button (click)="onGoBack()">back</button>
-  editMode: {{editMode}}
-</form>
+    <div>
+      <input type="text"
+             size="10"
+             id="addPrice"
+             placeholder="add price here"
+             ngModel
+             name="price"
+             required
+             #price="ngModel">
+    </div>
+    <span *ngIf="!price.valid && price.touched">enter price please</span>
 
-<form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="editMode">
-  <input type="text"
-         id="editImage"
-         placeholder="add link to img"
-         [ngModel]="product.image"
-         name="image">
 
-  <input type="text"
-         id="editTitle"
-         placeholder="add title here"
-         [ngModel]="product.title"
-         name="title">
+    <div>
+      <button type="submit" class="btn"
+              [disabled]="!f.valid">add
+      </button>
+      <button (click)="onGoBack()" class="btn">back</button>
+    </div>
+  </form>
 
-  <textarea id="editDescription"
-            placeholder="add description here"
-            [ngModel]="product.description"
-            name="description"></textarea>
+  <form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="editMode">
+    <div>
+      <input type="text"
+             size="50"
+             id="editImage"
+             placeholder="add link to img"
+             [ngModel]="product.image"
+             name="image">
+    </div>
+    <div>
+      <input type="text"
+             size="50"
+             id="editTitle"
+             placeholder="add title here"
+             [ngModel]="product.title"
+             name="title">
+    </div>
+    <div>
+    <textarea id="editDescription"
+              rows="10"
+              placeholder="add description here"
+              [ngModel]="product.description"
+              name="description"></textarea>
+    </div>
+    <div>
+      <input type="text"
+             size="10"
+             id="editPrice"
+             placeholder="add price here"
+             [ngModel]="product.price"
+             name="price">
+    </div>
+    <div>
+      <button (click)="onDelete()" class="btn">delete</button>
+      <button (click)="onGoBack()" class="btn">back</button>
+      <button type="submit" class="btn">edit</button>
+    </div>
+  </form>
 
-  <input type="text"
-         id="editPrice"
-         placeholder="add price here"
-         [ngModel]="product.price"
-         name="price">
-
-  <button type="submit">edit</button>
-  <button (click)="onGoBack()">back</button>
-  <button (click)="onDelete()">delete</button>
-  editMode: {{editMode}}
-
-</form>
+</div>

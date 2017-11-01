@@ -1,3 +1,30 @@
-input .ng-touched .ng-invalid  {
+.ng-touched .ng-invalid  {
   border: 2px solid red;
 }
+
+.product {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(204, 204, 223, 0.71);
+}
+
+input, textarea {
+  margin: 10px;
+}
+
+textarea {
+  width: 90%;
+}
+
+.btn:disabled {
+  border: gray;
+  color: gray;
+  cursor: not-allowed;
+}
+
