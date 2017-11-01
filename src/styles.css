@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #FAFBFC;
+}
+
+.container {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  border: 1px solid red;
+}
+
+.content {
+  width: 100%;
+}
+
+header {
+  margin: 1em;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid blue;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  border: 1px solid green;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 2px #ccc;
+  background-color: white;
+}
+
+li:hover,
+li:active {
+  box-shadow: 0 4px 5px #ccc;
+}

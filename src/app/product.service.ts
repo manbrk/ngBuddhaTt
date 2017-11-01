@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   localStorageProductsName = 'products';
   productList: { id: number, image: string, title: string, description: string, price: number }[] = [
-    {id: 1, image: 'http://', title: 'shugaring stick', description: 'full description', price: 1},
+    {id: 1, image: 'http://sportum.ru/img/300/big1_1626.jpg', title: 'shugaring stick', description: 'full description', price: 1},
     {id: 2, image: 'http://', title: 'bobbin bobbins', description: 'full description', price: 2},
     {id: 3, image: 'http://', title: 'glue for eyelashes', description: 'full description', price: 3},
     {id: 4, image: 'http://', title: 'vaporizer', description: 'full description', price: 4},

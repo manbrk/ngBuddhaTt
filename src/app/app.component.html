@@ -1,8 +1,13 @@
-<a [routerLink]="['/list']">list</a>
-<a [routerLink]="['/add']">add</a>
+<div class="container">
+  <header>
+    <h1>
+      <a [routerLink]="['/list']">{{title}}</a>
+    </h1>
+    <a [routerLink]="['/add']">add</a>
+  </header>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 
-<router-outlet></router-outlet>
 
-<!--<app-product-list></app-product-list>-->
-<!--<app-product-detail></app-product-detail>-->
-<!--<app-product-edit></app-product-edit>-->

@@ -14,20 +14,26 @@
          id="addTitle"
          placeholder="add title here"
          ngModel
-         name="title">
+         name="title"
+         required
+  #title="ngModel">
+  <span *ngIf="!title.valid && title.touched">enter title please</span>
 
   <textarea id="addDescription"
             placeholder="add description here"
             ngModel
-            name="description"></textarea>
+            name="description"
+            required></textarea>
 
   <input type="text"
          id="addPrice"
          placeholder="add price here"
          ngModel
-         name="price">
+         name="price"
+         required>
 
-  <button type="submit">add</button>
+  <button type="submit"
+          [disabled]="!f.valid">add</button>
   <button (click)="onGoBack()">back</button>
   editMode: {{editMode}}
 </form>
