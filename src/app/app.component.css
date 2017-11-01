@@ -1,8 +1,4 @@
-/*.btn {*/
-  /*background-color: #fff;*/
-  /*border: #007CBB 1px solid;*/
-  /*color: #007CBB;*/
-  /*text-transform: uppercase;*/
-  /*padding: .5rem 2rem;*/
-  /*border-radius: 5px;*/
-/*}*/
+.left {
+  margin-left: 18px;
+  align-self: flex-start;
+}
