@@ -35,4 +35,9 @@ export class ProductDetailComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
+  onEdit(id) {
+    // console.log('-->', id);
+    this.router.navigate(['/edit', id], {relativeTo: this.route});
+  }
+
 }

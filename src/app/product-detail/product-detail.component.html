@@ -1,8 +1,12 @@
-<p>
+<div class="product">
   <img src="{{product.image}}">
-</p>
-<p>
-  product with {{product.image}} - {{product.id}} - {{product.title}} - {{product.description}} - {{product.price}}!
-</p>
-<button (click)="onGoBack()">back</button>
-<button (click)="onDelete()">delete</button>
+  <span>{{product.title}}</span>
+  <h4><sup>$</sup>{{product.price}}</h4>
+  <p>{{product.description}}</p>
+  <div class="btn-panel">
+    <button (click)="onDelete()" class="btn">delete</button>
+    <button (click)="onEdit(product.id)" class="btn">edit</button>
+    <button (click)="onGoBack()" class="btn">back</button>
+  </div>
+
+</div>

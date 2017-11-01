@@ -22,12 +22,4 @@ export class ProductListComponent implements OnInit {
   onDetail(id) {
     this.router.navigate(['/list', id], {relativeTo: this.route});
   }
-
-  onEdit(id) {
-    this.router.navigate(['/edit', id], {relativeTo: this.route});
-  }
-
-  onDelete(product) {
-    this.productService.deleteProduct(product);
-  }
 }

@@ -1,10 +1,10 @@
 <ul>
-  <li *ngFor="let product of products">
+  <li *ngFor="let product of products" (click)="onDetail(product.id)">
     <div>
-      title: {{product.title}}
+      {{product.title}}
     </div>
     <div>
-      price: {{product.price}}
+      ${{product.price}}
     </div>
     <!--<button (click)="onDetail(product.id)">detail</button>-->
     <!--<button (click)="onEdit(product.id)">edit</button>-->
