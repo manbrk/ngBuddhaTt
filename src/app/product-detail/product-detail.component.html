@@ -1,5 +1,10 @@
 <div class="product">
-  <img src="{{product.image}}">
+  <img
+    [src]="product.image"
+    (load)="onImageLoad($event)"
+    (error)="onImageLoadError($event)"
+  >
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" *ngIf="!imageLoaded">
   <span>{{product.title}}</span>
   <h4><sup>$</sup>{{product.price}}</h4>
   <p>{{product.description}}</p>

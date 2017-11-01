@@ -10,6 +10,7 @@ import {ProductService} from '../product.service';
 export class ProductDetailComponent implements OnInit {
   product: {id: number, image: string, title: string, description: string, price: number };
   id: number;
+  imageLoaded: boolean;
 
   constructor(
     private productService: ProductService,
@@ -36,8 +37,14 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onEdit(id) {
-    // console.log('-->', id);
     this.router.navigate(['/edit', id], {relativeTo: this.route});
   }
 
+  onImageLoad(event: any) {
+    this.imageLoaded = true;
+  }
+
+  onImageLoadError(event: any) {
+    this.imageLoaded = false;
+  }
 }
