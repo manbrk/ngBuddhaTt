@@ -6,8 +6,8 @@ Demo [here](https://manbrk.github.io/ngBuddhaTt/)
 - Detailed Product page
 - Add, Edit and Delete Prooducts
 - All pages got routable links
-- All Products, update and changes stored in browser LocalStorage
-- Validation on Add Product page
+- All Products, update and changes stored in LocalStorage
+- Validation on Add and Edit Product page
 - Ability to set different image for the product, by paste a url-link into image field on Add or Edit page
 - If link on image is incorrect, some placeholder showed
 
