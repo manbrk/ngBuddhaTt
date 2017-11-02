@@ -1,13 +1,25 @@
 <div class="product">
+
+
   <form (ngSubmit)="onSubmit()" #f="ngForm" *ngIf="!editMode">
     <div>
+      <label>Image</label>
       <input type="text"
              size="50"
              id="addImage"
              placeholder="add link to img"
-             ngModel
+             [(ngModel)]="image"
              name="image"
+             required
       >
+    </div>
+
+    <div>
+      <img [src]="image"
+           (load)="onImageLoad($event)"
+           (error)="onImageLoadError($event)"
+      >
+      <img src="{{wrongImageLink}}" *ngIf="!imageLoaded">
     </div>
 
     <div>

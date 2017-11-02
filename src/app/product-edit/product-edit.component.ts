@@ -14,6 +14,10 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   product: Product;
   id: number;
   editMode = false;
+  image: string;
+  imageLoaded: boolean;
+  wrongImageLink = 'http://b-smart.co.th/wp-content/uploads/2014/07/not-found-150x150.png';
+
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
@@ -66,5 +70,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
+  }
+
+  onImageLoad(event: any) {
+    this.imageLoaded = true;
+  }
+
+  onImageLoadError(event: any) {
+    this.imageLoaded = false;
   }
 }
