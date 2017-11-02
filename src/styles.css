@@ -59,6 +59,11 @@ li:active {
   box-shadow: 0 4px 5px #ccc;
 }
 
+img {
+  height: 50%;
+  width: 50%;
+}
+
 .btn {
   margin: 5px;
   background-color: #fff;
