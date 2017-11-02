@@ -13,5 +13,6 @@ export class AppComponent {
 
   onReset() {
     localStorage.clear();
+    window.location.reload();
   }
 }
