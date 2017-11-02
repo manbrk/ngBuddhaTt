@@ -73,9 +73,19 @@
              size="50"
              id="editImage"
              placeholder="add link to img"
-             [ngModel]="product.image"
+             [(ngModel)]="product.image"
              name="image">
     </div>
+
+    <div>
+      <img [src]="product.image"
+           (load)="onImageLoad($event)"
+           (error)="onImageLoadError($event)"
+      >
+      <img src="{{wrongImageLink}}" *ngIf="!imageLoaded">
+    </div>
+
+
     <div>
       <input type="text"
              size="50"
