@@ -18,7 +18,6 @@ export class ProductEditComponent implements OnInit {
   imageLoaded: boolean;
   wrongImageLink = 'http://b-smart.co.th/wp-content/uploads/2014/07/not-found-150x150.png';
 
-
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
               private router: Router) { }
