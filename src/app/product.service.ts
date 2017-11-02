@@ -35,7 +35,6 @@ export class ProductService {
   }
 
   getProducts() {
-    // console.log('-->', localStorage.key(0) === this.localStorageProductsName);
     if (localStorage.length > 0 ) {
       this.getFromLocalStorage();
     }
@@ -47,8 +46,10 @@ export class ProductService {
   }
 
   deleteProduct(product) {
-    this.productList.splice(this.productList.indexOf(product), 1);
-    this.updateLocalStorage();
+    if (confirm('Are you sure you want to delete ' + product.title.toUpperCase())) {
+      this.productList.splice(this.productList.indexOf(product), 1);
+      this.updateLocalStorage();
+    }
   }
 
 }
