@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import {NgForm} from '@angular/forms';
@@ -9,7 +9,7 @@ import {Product} from '../product.model';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
-export class ProductEditComponent implements OnInit, OnDestroy {
+export class ProductEditComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
   product: Product;
   id: number;
@@ -66,10 +66,6 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   onDelete() {
     this.productService.deleteProduct(this.product);
     this.router.navigate(['/list']);
-  }
-
-  ngOnDestroy() {
-
   }
 
   onImageLoad(event: any) {

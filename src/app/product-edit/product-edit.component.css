@@ -10,12 +10,10 @@
   box-shadow: 0 4px 5px rgba(204, 204, 223, 0.71);
 }
 
-input, textarea {
-  margin: 10px;
-}
 
-textarea {
-  width: 90%;
+input, textarea {
+  width: 100%;
+  margin: 10px;
 }
 
 .btn:disabled {
